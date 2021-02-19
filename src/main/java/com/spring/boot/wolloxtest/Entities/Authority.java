@@ -1,4 +1,4 @@
-package com.spring.boot.wolloxtest.entities;
+package com.spring.boot.wolloxtest.Entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

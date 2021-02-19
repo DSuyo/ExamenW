@@ -1,6 +1,6 @@
-package com.spring.boot.wolloxtest.entities;
+package com.spring.boot.wolloxtest.Entities;
 
-import com.spring.boot.wolloxtest.entities.keys.AlbumUserId;
+import com.spring.boot.wolloxtest.Entities.keys.AlbumUserId;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

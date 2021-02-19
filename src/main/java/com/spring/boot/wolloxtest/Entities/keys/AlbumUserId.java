@@ -1,4 +1,4 @@
-package com.spring.boot.wolloxtest.entities.keys;
+package com.spring.boot.wolloxtest.Entities.keys;
 
 import java.io.Serializable;
 
@@ -8,9 +8,12 @@ public class AlbumUserId implements Serializable {
 
     private Long userId;
 
-    public AlbumUserId(Long albumId, Long userId) {
+    private String authorityName;
+
+    public AlbumUserId(Long albumId, Long userId, String authorityName) {
         this.albumId = albumId;
         this.userId = userId;
+        this.authorityName = authorityName;
     }
 
     public Long getAlbumId() {
@@ -27,5 +30,13 @@ public class AlbumUserId implements Serializable {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public String getAuthorityName() {
+        return authorityName;
+    }
+
+    public void setAuthorityName(String authorityName) {
+        this.authorityName = authorityName;
     }
 }
