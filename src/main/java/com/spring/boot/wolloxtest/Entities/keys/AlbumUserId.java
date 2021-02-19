@@ -8,12 +8,12 @@ public class AlbumUserId implements Serializable {
 
     private Long userId;
 
-    private String authorityName;
+    private String authority;
 
     public AlbumUserId(Long albumId, Long userId, String authorityName) {
         this.albumId = albumId;
         this.userId = userId;
-        this.authorityName = authorityName;
+        this.authority = authorityName;
     }
 
     public Long getAlbumId() {
@@ -32,11 +32,11 @@ public class AlbumUserId implements Serializable {
         this.userId = userId;
     }
 
-    public String getAuthorityName() {
-        return authorityName;
+    public String getAuthority() {
+        return authority;
     }
 
-    public void setAuthorityName(String authorityName) {
-        this.authorityName = authorityName;
+    public void setAuthority(String authority) {
+        this.authority = authority;
     }
 }

@@ -2,10 +2,7 @@ package com.spring.boot.wolloxtest.Entities;
 
 import com.spring.boot.wolloxtest.Entities.keys.AlbumUserId;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "albums_user")
@@ -17,6 +14,11 @@ public class AlbumUser {
 
     @Id
     private Long userId;
+
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "authority_name")
+    private Authority authority;
 
     public AlbumUser() {
     }
