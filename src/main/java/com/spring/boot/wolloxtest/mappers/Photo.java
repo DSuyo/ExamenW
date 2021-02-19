@@ -3,7 +3,7 @@ package com.spring.boot.wolloxtest.mappers;
 public class Photo {
 
 
-    private Long userId;
+    private Long albumId;
 
     private Long id;
 
@@ -17,12 +17,12 @@ public class Photo {
     public Photo() {
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getAlbumId() {
+        return albumId;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setAlbumId(Long albumId) {
+        this.albumId = albumId;
     }
 
     public Long getId() {

@@ -59,7 +59,7 @@ public class UserController {
         }
         catch (Exception e) {
             e.printStackTrace();
-            logger.info("nternal server error");
+            logger.info("Internal server error");
             throw new ResponseStatusException( HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error", e );
         }
 

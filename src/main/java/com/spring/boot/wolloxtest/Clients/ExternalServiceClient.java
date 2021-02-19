@@ -16,7 +16,7 @@ public interface ExternalServiceClient {
     List<User> getUsers();
 
     @GetMapping("/photos")
-    List<User> getPhotos();
+    List<Photo> getPhotos();
 
     @GetMapping("/albums")
     List<Album> getAlbums();
