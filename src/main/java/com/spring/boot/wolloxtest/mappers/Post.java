@@ -1,6 +1,6 @@
-package com.spring.boot.wolloxtest.Models;
+package com.spring.boot.wolloxtest.mappers;
 
-public class Album {
+public class Post {
 
 
     private Long userId;
@@ -9,8 +9,10 @@ public class Album {
 
     private String title;
 
+    private String body;
 
-    public Album() {
+
+    public Post() {
     }
 
     public Long getUserId() {
@@ -35,5 +37,13 @@ public class Album {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
     }
 }

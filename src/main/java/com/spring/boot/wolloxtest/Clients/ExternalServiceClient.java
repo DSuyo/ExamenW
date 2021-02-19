@@ -1,8 +1,8 @@
 package com.spring.boot.wolloxtest.Clients;
 
-import com.spring.boot.wolloxtest.Models.Album;
-import com.spring.boot.wolloxtest.Models.Photo;
-import com.spring.boot.wolloxtest.Models.User;
+import com.spring.boot.wolloxtest.mappers.Album;
+import com.spring.boot.wolloxtest.mappers.Photo;
+import com.spring.boot.wolloxtest.mappers.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

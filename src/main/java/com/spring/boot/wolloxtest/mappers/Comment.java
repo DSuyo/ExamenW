@@ -1,4 +1,4 @@
-package com.spring.boot.wolloxtest.Models;
+package com.spring.boot.wolloxtest.mappers;
 
 public class Comment {
 

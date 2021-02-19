@@ -1,6 +1,6 @@
-package com.spring.boot.wolloxtest.Models;
+package com.spring.boot.wolloxtest.mappers;
 
-public class Photo {
+public class Album {
 
 
     private Long userId;
@@ -9,12 +9,8 @@ public class Photo {
 
     private String title;
 
-    private String url;
 
-    private String thumbnailUrl;
-
-
-    public Photo() {
+    public Album() {
     }
 
     public Long getUserId() {
@@ -39,21 +35,5 @@ public class Photo {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getThumbnailUrl() {
-        return thumbnailUrl;
-    }
-
-    public void setThumbnailUrl(String thumbnailUrl) {
-        this.thumbnailUrl = thumbnailUrl;
     }
 }
