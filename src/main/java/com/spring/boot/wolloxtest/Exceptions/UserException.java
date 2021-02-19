@@ -1,8 +1,15 @@
 package com.spring.boot.wolloxtest.Exceptions;
 
-public class UserException extends Exception{
+import feign.FeignException.FeignClientException;
+import feign.Request;
 
-    public UserException(String message) {
-        super(message);
+import java.nio.ByteBuffer;
+import java.util.Optional;
+
+public class UserException extends FeignClientException {
+
+    public UserException(int status, String message, Request request, Optional<ByteBuffer> body) {
+        super(status, message, request, new byte[ body.get().remaining()]);
     }
+
 }
