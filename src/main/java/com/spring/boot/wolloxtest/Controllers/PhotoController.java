@@ -37,12 +37,12 @@ public class PhotoController {
         catch (FeignClientException e){
             e.printStackTrace();
             logger.info("Error obtaining photos");
-            throw new ResponseStatusException( HttpStatus.NOT_FOUND, "Error obtaining photos", e );
+            throw new ResponseStatusException( e.status(), "Error obtaining photos", e );
         }
 
         catch (Exception e) {
             e.printStackTrace();
-            logger.info("Users not found");
+            logger.info("Internal server error");
             throw new ResponseStatusException( HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error", e );
         }
     }

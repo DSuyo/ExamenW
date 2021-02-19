@@ -38,7 +38,7 @@ public interface ExternalServiceClient {
     Album getAlbumById(@PathVariable("id") Long id);
 
     @GetMapping("/users/{id}/albums")
-    List<Photo> getAlbumsByUserId(@PathVariable("id") Long id);
+    List<Album> getAlbumsByUserId(@PathVariable("id") Long id);
 
 
 
