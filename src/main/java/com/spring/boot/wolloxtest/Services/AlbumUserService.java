@@ -1,8 +1,7 @@
 package com.spring.boot.wolloxtest.Services;
 
 import com.spring.boot.wolloxtest.Controllers.wrappers.AlbumUserWrapper;
-import com.spring.boot.wolloxtest.Entities.AlbumUser;
-import com.spring.boot.wolloxtest.Entities.Authority;
+import com.spring.boot.wolloxtest.Exceptions.AlbumUserException;
 import com.spring.boot.wolloxtest.Exceptions.AuthorityException;
 import com.spring.boot.wolloxtest.mappers.Album;
 import com.spring.boot.wolloxtest.mappers.User;
@@ -13,5 +12,7 @@ public interface AlbumUserService {
 
     AlbumUserWrapper createAlbumUser(Album album, User user, List<String> authorities) throws AuthorityException;
 
-    AlbumUser updateAuthorities(Album album, User user, List<Authority> authorities);
+    void updateAuthorities(Album album, User user, List<String> authorities) throws AlbumUserException, AuthorityException;
+
+    List<User> getUsersByAlbumAndAuthority(String authority, Long albumId) throws AlbumUserException, AuthorityException;
 }

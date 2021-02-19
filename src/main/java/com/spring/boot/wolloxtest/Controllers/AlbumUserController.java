@@ -1,6 +1,8 @@
 package com.spring.boot.wolloxtest.Controllers;
 
 import com.spring.boot.wolloxtest.Controllers.wrappers.AlbumUserWrapper;
+import com.spring.boot.wolloxtest.Exceptions.AlbumUserException;
+import com.spring.boot.wolloxtest.Exceptions.AuthorityException;
 import com.spring.boot.wolloxtest.Services.AlbumUserService;
 import feign.FeignException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,7 @@ public class AlbumUserController {
     @PostMapping("/create")
     public ResponseEntity<?> create (@RequestBody AlbumUserWrapper albumUserWrapper){
         logger.info("create album user and authority");
+
         try{
             AlbumUserWrapper albumUserWrapperResult = this.albumUserService.createAlbumUser(albumUserWrapper.getAlbum(), albumUserWrapper.getUser(), albumUserWrapper.getAuthorities());
             return new ResponseEntity<>(albumUserWrapperResult, HttpStatus.CREATED);
@@ -33,6 +36,29 @@ public class AlbumUserController {
             throw new ResponseStatusException( e.status(), "Error creating album user", e );
         }
         catch (Exception e){
+            e.printStackTrace();
+            logger.info("Internal server error");
+            throw new ResponseStatusException( HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error", e );
+        }
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<?> update (@RequestBody AlbumUserWrapper albumUserWrapper){
+        logger.info("Update album user and authority");
+
+        try{
+            this.albumUserService.updateAuthorities( albumUserWrapper.getAlbum(), albumUserWrapper.getUser(), albumUserWrapper.getAuthorities());
+            return new ResponseEntity<>(HttpStatus.CREATED);
+
+        } catch (AlbumUserException e) {
+            e.printStackTrace();
+            logger.info(e.getMessage());
+            throw new ResponseStatusException( HttpStatus.NOT_FOUND, e.getMessage(), e );
+        } catch (AuthorityException e) {
+            e.printStackTrace();
+            logger.info(e.getMessage());
+            throw new ResponseStatusException( HttpStatus.NOT_FOUND, e.getMessage(), e );
+        } catch (Exception e){
             e.printStackTrace();
             logger.info("Internal server error");
             throw new ResponseStatusException( HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error", e );
