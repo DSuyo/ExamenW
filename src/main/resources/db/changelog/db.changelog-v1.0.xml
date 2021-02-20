@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="db.changelog-v1.0" author="dsuyo">
+        <preConditions onFail="MARK_RAN" onFailMessage="Error. Exist table ">
+            <not>
+                <tableExists tableName="authorities"/>
+            </not>
+        </preConditions>
+        <createTable tableName="authorities">
+            <column name="authority_name" type="varchar(255)">
+                <constraints primaryKey="true"></constraints>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="db.changelog-v1.1" author="dsuyo">
+        <preConditions onFail="MARK_RAN" onFailMessage="Error. Exist table ">
+            <not>
+                <tableExists tableName="album_user"/>
+            </not>
+        </preConditions>
+        <createTable tableName="album_user">
+
+            <column name="album_id" type="int">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+
+            <column name="user_id" type="int">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="db.changelog-v1.1" author="dsuyo">
+        <preConditions onFail="MARK_RAN" onFailMessage="Error. Exist table ">
+            <not>
+                <tableExists tableName="album_user"/>
+            </not>
+        </preConditions>
+        <createTable tableName="album_user">
+
+            <column name="album_id" type="int">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+
+            <column name="user_id" type="int">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="db.changelog-v1.2" author="dsuyo">
+        <preConditions onFail="MARK_RAN" onFailMessage="Error. Exist table ">
+            <not>
+                <tableExists tableName="album_user_authority"/>
+            </not>
+        </preConditions>
+        <createTable tableName="album_user_authority">
+
+            <column name="album_id" type="int">
+                <constraints
+                    primaryKey="false"
+                    nullable="false"
+                    foreignKeyName="fk_album_id"
+                    referencedColumnNames="album_user(album_id)"
+                />
+            </column>
+
+            <column name="user_id" type="int">
+                <constraints
+                    primaryKey="false"
+                    nullable="false"
+                    foreignKeyName="fk_user_id"
+                    referencedColumnNames="album_user(user_id)"
+                />
+            </column>
+
+            <column name="authority_name" type="varchar(255)">
+                <constraints
+                    primaryKey="false"
+                    nullable="false"
+                    foreignKeyName="fk_user_id"
+                    referencedColumnNames="authorities(authority_name)"
+                />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="db.changelog-v1.3" author="dsuyo">
+        <insert tableName="authorities">
+            <column name="authority_name" value="LECTURA"></column>
+        </insert>
+        <insert tableName="authorities">
+            <column name="authority_name" value="ESCRITURA"></column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

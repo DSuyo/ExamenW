@@ -29,7 +29,7 @@ public class CommentController {
     @GetMapping("")
     public ResponseEntity<?> getComments(@RequestParam(required = false) String name, @RequestParam(required = false) String email){
         logger.info("get albums");
-        
+
         try{
             List<Comment> comments = this.commentService.getComments(name, email);
 
